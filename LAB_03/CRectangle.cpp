@@ -9,12 +9,14 @@ const CPoint* CRectangle::bottomRight() const {
 }
 
 void CRectangle::setTopLeft(const CPoint* value) {
+	if (!value) return;
 	if (value->X() < _bottomRight->X() && value->Y() > _bottomRight->Y()) {
 		*_topLeft = *value;
 	}
 }
 
 void CRectangle::setBottomRight(const CPoint* value) {
+	if (!value) return;
 	if (_topLeft->X() < value->X() && _topLeft->Y() > value->Y()) {
 		*_bottomRight = *value;
 	}

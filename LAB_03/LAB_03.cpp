@@ -3,6 +3,8 @@
 #include "CRectangle.h"
 #include "CDynamicArray.h"
 
+#include <crtdbg.h>
+
 int CPoint::InstanceCount = 0;
 int CLine::InstanceCountLine = 0;
 int CRectangle::InstanceCountRectangle = 0;
@@ -83,8 +85,9 @@ int main()
             break;
         case 3: {
             std::cout << "Mang da sao chep la: \n";
-            CDynamicArray* copyArray(array);
+            CDynamicArray* copyArray = new CDynamicArray(*array);
             copyArray->print();
+            delete copyArray;
             break;
         }
         default:
@@ -94,6 +97,8 @@ int main()
         }
     }
     delete array;
+
+    _CrtDumpMemoryLeaks();
     return 0;
 }
 

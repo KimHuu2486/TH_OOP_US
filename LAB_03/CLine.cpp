@@ -14,6 +14,7 @@ const float CLine::length() const {
 }
 
 void CLine::setStart(const CPoint* value) {
+	if (value == nullptr) return;
 	if (!CPoint::isEqual(value, _end)) {
 		*_start = *value;
 		this->updateLength();
@@ -21,6 +22,7 @@ void CLine::setStart(const CPoint* value) {
 }
 
 void CLine::setEnd(const CPoint* value) {
+	if (value == nullptr) return;
 	if (!CPoint::isEqual(_start, value)) {
 		*_end = *value;
 		this->updateLength();

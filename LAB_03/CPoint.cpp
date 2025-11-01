@@ -49,13 +49,14 @@ std::ostream& operator<<(std::ostream& out, const CPoint& p) {
 }
 
 float CPoint::CalcDistanceTo(const CPoint* other) const {
+	if (other == nullptr) return 0.0f;
 	float dx = _x - other->_x;
 	float dy = _y - other->_y;
 	return sqrt(dx * dx + dy * dy);
 }
 
 bool CPoint::isEqual(const CPoint* p1, const CPoint* p2) {
-	return (fabs(p1->_x - p2->X()) < epsilon) && fabs((p1->_y - p2->Y()) < epsilon);
+	return (fabs(p1->_x - p2->X()) < epsilon) && (fabs(p1->_y - p2->Y()) < epsilon);
 }
 
 float CPoint::CalcDistance(const CPoint* a, const CPoint* b) {

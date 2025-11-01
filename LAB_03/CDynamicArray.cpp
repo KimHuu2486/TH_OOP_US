@@ -63,13 +63,15 @@ CDynamicArray::CDynamicArray(const int& length)
 	}
 }
 
-CDynamicArray::CDynamicArray(const CDynamicArray* arr)
+CDynamicArray::CDynamicArray(const CDynamicArray& arr)
 	: CDynamicArray()
 {
-	_len = arr->length();
-	_a = new int[_len];
-	for (int i = 0; i < _len; i++) {
-		_a[i] = arr->_a[i];
+	_len = arr.length();
+	if (_len > 0) {
+		_a = new int[_len];
+		for (int i = 0; i < _len; i++) {
+			_a[i] = arr._a[i];
+		}
 	}
 }
 

@@ -15,7 +15,7 @@ public:
 public:
 	CDynamicArray();
 	CDynamicArray(const int&);
-	CDynamicArray(const CDynamicArray* arr);
+	CDynamicArray(const CDynamicArray& arr);
 	~CDynamicArray();
 public:
 	void pushBack(const int& value);
