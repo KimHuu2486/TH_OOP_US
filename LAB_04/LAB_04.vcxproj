@@ -123,7 +123,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CCircle.cpp" />
+    <ClCompile Include="CDynamicArray.cpp" />
+    <ClCompile Include="CFraction.cpp" />
+    <ClCompile Include="CLine.cpp" />
+    <ClCompile Include="CPoint.cpp" />
+    <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="LAB_04.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CCircle.h" />
+    <ClInclude Include="CDynamicArray.h" />
+    <ClInclude Include="CFraction.h" />
+    <ClInclude Include="CLine.h" />
+    <ClInclude Include="CPoint.h" />
+    <ClInclude Include="CRectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
