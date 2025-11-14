@@ -104,7 +104,8 @@ CRectangle* CRectangle::Parse(std::string line) {
 
 	CRectangle* temp = new CRectangle(topLeft, bottomRight);
 
-	delete topLeft, bottomRight;
+	delete topLeft;
+	delete bottomRight;
 
 	return temp;
 }

@@ -8,6 +8,10 @@
 #include "CTriangle.h"
 #include "CDate.h"
 
+#define _CRTDBG_MAP_ALLOC
+#include <cstdlib>
+#include <crtdbg.h>
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
 int CPoint::InstanceCount = 0;
 int CLine::InstanceCountLine = 0;
@@ -16,6 +20,7 @@ int CCircle::InstanceCountCircle = 0;
 
 int main()
 {
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     //std::string line = "41, 817, 12, 9371, 154";
     //std::string seperator = ", ";
@@ -75,6 +80,7 @@ int main()
     CDate* date = CDate::Parse("14/11/2025");
     std::cout << *date << std::endl;
     delete date;
+
 
     return 0;
 }

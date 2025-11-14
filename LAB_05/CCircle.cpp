@@ -25,13 +25,9 @@ CCircle::CCircle() {
 	InstanceCountCircle++;
 }
 
-CCircle::CCircle(const CPoint* c, const float& r)
-	: CCircle()
-{
-	if (r > 0) {
-		_center = new CPoint(*c);
-		_radius = r;
-	}
+CCircle::CCircle(const CPoint* c, const float& r) {
+	_center = new CPoint(*c);
+	_radius = (r > 0 ? r : 1);
 
 	InstanceCountCircle++;
 }

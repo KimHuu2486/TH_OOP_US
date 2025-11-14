@@ -115,7 +115,8 @@ CLine* CLine::Parse(std::string line) {
 
 	CLine* temp = new CLine(start, end);
 
-	delete start, end;
+	delete start;
+	delete end;
 
 	return temp;
 }

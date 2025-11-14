@@ -49,7 +49,18 @@ CTriangle::CTriangle(const CPoint* a, const CPoint* b, const CPoint* c)
 }
 
 CTriangle::~CTriangle() {
-	delete _a, _b, _c;
+	if (_a != nullptr) {
+		delete _a;
+	}
+	if (_b != nullptr) {
+		delete _b;
+	}
+	if (_c != nullptr) {
+		delete _c;
+	}
+	_a = nullptr;
+	_b = nullptr;
+	_c = nullptr;
 }
 
 bool CTriangle::isLine(const CPoint* a, const CPoint* b, const CPoint* c) {
@@ -109,7 +120,9 @@ CTriangle* CTriangle::Parse(std::string line) {
 
 	CTriangle* temp = new CTriangle(a, b, c);
 
-	delete a, b, c;
+	delete a;
+	delete b;
+	delete c;
 
 	return temp;
 }
