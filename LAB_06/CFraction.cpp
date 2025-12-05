@@ -151,3 +151,27 @@ CFraction CFraction::operator--(int) {
 	_den /= gcd;
 	return temp;
 }
+
+bool CFraction::operator<(const CFraction& other) const {
+	return _num * other._den < _den * other._num;
+}
+
+bool CFraction::operator<=(const CFraction& other) const {
+	return _num * other._den <= _den * other._num;
+}
+
+bool CFraction::operator>(const CFraction& other) const {
+	return _num * other._den > _den * other._num;
+}
+
+bool CFraction::operator>=(const CFraction& other) const {
+	return _num * other._den >= _den * other._num;
+}
+
+bool CFraction::operator==(const CFraction& other) const {
+	return _num * other._den == _den * other._num;
+}
+
+bool CFraction::operator!=(const CFraction& other) const {
+	return _num * other._den != _den * other._num;
+}

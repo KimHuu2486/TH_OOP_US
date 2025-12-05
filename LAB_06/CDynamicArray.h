@@ -30,7 +30,7 @@ public:
 		// Xu li ly truong hop cap phat bo nho khong thanh cong
 		if (_a == nullptr) {
 			std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Memory allocation failed");
 		}
 
 		std::copy(array, array + _len, _a);
@@ -47,7 +47,7 @@ public:
 		// Xu li ly truong hop cap phat bo nho khong thanh cong
 		if (_a == nullptr) {
 			std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Memory allocation failed");
 		}
 		int idx = 0;
 
@@ -66,7 +66,7 @@ public:
 	CDynamicArray(const int& length) : CDynamicArray() {
 		if (length < 0) {
 			std::cerr << "Do dai mang khong hop le!" << std::endl;
-			exit(EXIT_FAILURE);
+			return;
 		}
 		if (length == 0) {
 			return;
@@ -77,7 +77,7 @@ public:
 		// Xu li ly truong hop cap phat bo nho khong thanh cong
 		if (_a == nullptr) {
 			std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Memory allocation failed");
 		}
 	}
 
@@ -88,7 +88,7 @@ public:
 			// Xu li ly truong hop cap phat bo nho khong thanh cong
 			if (_a == nullptr) {
 				std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-				exit(EXIT_FAILURE);
+				throw std::runtime_error("Memory allocation failed");
 			}
 			std::copy(arr._a, arr._a + _len, _a);
 		}
@@ -106,7 +106,7 @@ public:
 				// Xu li ly truong hop cap phat bo nho khong thanh cong
 				if (_a == nullptr) {
 					std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-					exit(EXIT_FAILURE);
+					throw std::runtime_error("Memory allocation failed");
 				}
 				std::copy(arr._a, arr._a + _len, _a);
 			}
@@ -130,7 +130,7 @@ public:
 		// Kiểm tra có cấp phát bộ nhớ được không
 		if (_a == nullptr) {
 			std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Memory allocation failed");
 		}
 
 		for (int i = 0; i < _len; i++) {
@@ -167,8 +167,7 @@ public:
 		return write.str();
 	}
 
-	template <class U>
-	friend std::istream& operator>>(std::istream& in, CDynamicArray<U>& arr) {
+	friend std::istream& operator>>(std::istream& in, CDynamicArray<T>& arr) {
 		while (true) {
 			std::cout << "Moi thay nhap do dai mang: ";
 			in >> arr._len;
@@ -181,11 +180,11 @@ public:
 			delete[] arr._a;
 			arr._a = nullptr;
 		}
-		arr._a = new U[arr._len];
+		arr._a = new T[arr._len];
 		// Kiểm tra có cấp phát bộ nhớ được không
 		if (arr._a == nullptr) {
 			std::cerr << "Cap phat bo nho khong thanh cong!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Memory allocation failed");
 		}
 		for (int i = 0; i < arr._len; i++) {
 			std::cout << "arr[" << i << "] = ";
@@ -194,8 +193,7 @@ public:
 		return in;
 	}
 
-	template <class U>
-	friend std::ostream& operator<<(std::ostream& out, const CDynamicArray<U>& arr) {
+	friend std::ostream& operator<<(std::ostream& out, const CDynamicArray<T>& arr) {
 		out << arr.ToString();
 		return out;
 	}
@@ -204,7 +202,7 @@ public:
 	T MaxElement() {
 		if (_len == 0) {
 			std::cerr << "Mang rong khong co phan tu!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Array is empty");
 		}
 		T maxElem = _a[0];
 		for (int i = 1; i < _len; i++) {

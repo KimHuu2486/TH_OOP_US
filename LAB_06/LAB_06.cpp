@@ -57,7 +57,7 @@ int main()
 
 	// DEMO CDynamicArray.h/CDynamicArray.cpp
 	std::cout << "\nDEMO CDynamicArray Class\n";
-
+	std::cout << "CDynamicArray<int>.\n";
     CDynamicArray<int>* array = new CDynamicArray<int>;
     bool isRunning = true;
     while (isRunning) {
@@ -76,18 +76,20 @@ int main()
         std::cin >> option;
 
         switch (option) {
-        case 1:
+        case 1: {
             std::cout << "Moi thay nhap gia tri can them vao cuoi mang: ";
             int value;
             std::cin >> value;
             array->pushBack(value);
             break;
-        case 2:
+        }
+        case 2: {
             std::cout << "Moi thay nhap index can truy xuat: ";
             int index;
             std::cin >> index;
             std::cout << "Ket qua la: " << array->getAt(index) << std::endl;
             break;
+        }
         case 3:
             std::cin >> *array;
             break;
@@ -109,6 +111,61 @@ int main()
         }
     }
     delete array;
+
+    std::cout << "CDynamicArray<CFraction>.\n";
+    CDynamicArray<CFraction>* array1 = new CDynamicArray<CFraction>;
+    isRunning = true;
+    while (isRunning) {
+        std::cout << "\n______________________________" << std::endl;
+        std::cout << "1. Nhan phim 1 de them phan tu vao cuoi mang." << std::endl;
+        std::cout << "2. Nhan phim 2 de lay phan tu tai index i." << std::endl;
+        std::cout << "3. Nhan phim 3 de nhap mang." << std::endl;
+        std::cout << "4. Nhan phim 4 de xuat mang." << std::endl;
+        std::cout << "5. Nhan phim 5 de lay phan tu lon nhat." << std::endl;
+        std::cout << "6. Nhan phim 6 de sap xep mang tang dan." << std::endl;
+        std::cout << "*Nhan phim bat ki khac de thoat chuong trinh.*" << std::endl;
+        std::cout << "______________________________" << std::endl;
+
+        std::cout << "Moi thay nhap chuc nang: ";
+        int option;
+        std::cin >> option;
+
+        switch (option) {
+        case 1: {
+            std::cout << "Moi thay nhap gia tri can them vao cuoi mang: ";
+            CFraction value;
+            std::cin >> value;
+            array1->pushBack(value);
+            break;
+        }
+        case 2: {
+            std::cout << "Moi thay nhap index can truy xuat: ";
+            int index;
+            std::cin >> index;
+            std::cout << "Ket qua la: " << array1->getAt(index) << std::endl;
+            break;
+		}
+        case 3:
+            std::cin >> *array1;
+            break;
+        case 4:
+            std::cout << *array1;
+            break;
+        case 5:
+            std::cout << "Phan tu lon nhat: " << array1->MaxElement() << std::endl;
+            break;
+        case 6:
+            array1->sort();
+            std::cout << "Mang da duoc sap xep tang dan.\n";
+            std::cout << *array1;
+            break;
+        default:
+            isRunning = false;
+            std::cout << "Ket thuc chuong trinh!!!\n";
+            break;
+        }
+    }
+    delete array1;
 
     return 0;
 }

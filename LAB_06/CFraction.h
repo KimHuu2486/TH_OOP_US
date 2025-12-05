@@ -40,4 +40,11 @@ public:
 	CFraction operator++(int);
 	CFraction& operator--();
 	CFraction operator--(int);
+public:
+	bool operator<(const CFraction& other) const;
+	bool operator<=(const CFraction& other) const;
+	bool operator>(const CFraction& other) const;
+	bool operator>=(const CFraction& other) const;
+	bool operator==(const CFraction& other) const;
+	bool operator!=(const CFraction& other) const;
 };
