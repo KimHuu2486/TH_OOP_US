@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b76b0768-1b43-494b-a788-f369562d9b58}</ProjectGuid>
-    <RootNamespace>LAB06</RootNamespace>
+    <ProjectGuid>{f0076a7e-65a5-41f2-ba35-59c88ea20b2f}</ProjectGuid>
+    <RootNamespace>MIDTERM</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,15 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CFraction.cpp" />
-    <ClCompile Include="Compare.h" />
-    <ClCompile Include="LAB_06.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CDynamicArray.h" />
-    <ClInclude Include="CFraction.h" />
-    <ClInclude Include="Tokenizer.h" />
-    <ClInclude Include="Utils.h" />
+    <ClCompile Include="MID_TERM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
