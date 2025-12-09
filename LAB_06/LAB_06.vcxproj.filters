@@ -24,6 +24,9 @@
     <ClCompile Include="Compare.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="CDynamicArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tokenizer.h">

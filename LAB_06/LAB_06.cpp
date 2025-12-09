@@ -1,9 +1,10 @@
 ﻿#include <iostream>
 #include <string>
+#include <limits>
 
 #include "CFraction.h"
 #include "Compare.h"
-#include "CDynamicArray.h"
+#include "CDynamicArray.cpp"
 
 #define _CRTDBG_MAP_ALLOC
 #include <cstdlib>
@@ -11,6 +12,11 @@
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
 std::string CFraction::SEPERATOR = "/";
+
+void clearCin() {
+    std::cin.clear(); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
 int main()
 {
@@ -74,7 +80,10 @@ int main()
         std::cout << "Moi thay nhap chuc nang: ";
         int option;
         std::cin >> option;
-
+        if (std::cin.fail()) {
+            clearCin();
+            option = -1;
+        }
         switch (option) {
         case 1: {
             std::cout << "Moi thay nhap gia tri can them vao cuoi mang: ";
@@ -112,7 +121,7 @@ int main()
     }
     delete array;
 
-    std::cout << "CDynamicArray<CFraction>.\n";
+    std::cout << "\nCDynamicArray<CFraction>.\n";
     CDynamicArray<CFraction>* array1 = new CDynamicArray<CFraction>;
     isRunning = true;
     while (isRunning) {
@@ -129,7 +138,10 @@ int main()
         std::cout << "Moi thay nhap chuc nang: ";
         int option;
         std::cin >> option;
-
+        if (std::cin.fail()) {
+            clearCin();
+            option = -1;
+        }
         switch (option) {
         case 1: {
             std::cout << "Moi thay nhap gia tri can them vao cuoi mang: ";
